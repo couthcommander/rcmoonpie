@@ -1,0 +1,72 @@
+---
+title: "REDCap Moonpie Vignette"
+date: '`r Sys.Date()`'
+output: pdf_document
+---
+
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{1. Vignette for REDCap Metadata}
+%\VignetteEncoding{UTF-8}
+-->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(R.options = list(width = 100))
+```
+
+## Motivation
+
+[REDCap](http://www.project-redcap.org/) is a data collection tool. Data can be exported and read into R as a CSV file. Some basic manipulation (like setting variable labels) can be performed by downloading an R script also provided through the REDCap system. Parsing this R script can provide a data dictionary, which the package will provide in additional formats (YAML, CSV). This package will allow a user to modify the data dictionary which will update the R script used for importing the REDCap data.
+
+## Functionality
+
+Use `script2info` to build a data dictionary (list) from the REDCap provided R script. While you can examine the list created (for example with `str`), you will likely want to use the `dd2df` function to convert the list to a data.frame.
+
+```{r}
+library(rcmoonpie)
+dd <- script2info(system.file("examples", "ex_script.R", package = "rcmoonpie"))
+dd2df(dd)
+```
+
+You can export your data dictionary to YAML or CSV with the `dd2yaml` and `dd2csv` functions. Set the "file" argument to a file location, or alternatively allow it to print to standard output.
+
+YAML and CSV can be imported back into a data dictionary with the `yaml2info` and `csv2info` functions.
+
+```{r}
+dd2yaml(dd)
+td <- tempdir()
+dd2csv(dd, file.path(td, 'test.csv'))
+dd_alt <- csv2info(file.path(td, 'test.csv'))
+# exporting to CSV and back will have equivalent objects
+all.equal(dd, dd_alt)
+```
+
+Variables and factor levels can be removed with `excludeVar` and `excludeLevel`. Excluding can be undone with `unexcludeVar` and `unexcludeLevel`. Note that you can also accomplish exclusion by modifying YAML or CSV output.
+
+```{r}
+dd <- excludeVar(dd, 'data', 'redcap_event_name')
+dd <- excludeLevel(dd, 'data', 'sex', 666)
+dd2df(dd)
+```
+
+Rather than passing `excludeVar` a variable name, a regular expression pattern can be used to exclude all variables matching the given pattern. You can check which columns a pattern includes with `findVariableByPattern`.
+
+```{r}
+# which variables include an underscore character
+findVariableByPattern(dd, '_')
+# exclude all variables that have an "_" in the name
+dd2df(excludeVar(dd, 'data', '_'))
+```
+
+The final output will be a new R script to replace the original downloaded from REDCap. It will reflect any changes to the data dictionary. Use the `dd2script` function to create the R script. Like `dd2yaml` it has a "file" argument that can be set to a location or left blank. It also has an argument "factorHandle" that can be used to change factor variable behavior. This can be set to one of three values:
+
+* duplicate - The original character string variable will be copied to a new factor variable that includes ".factor" at the end of the variable name. This is the default.
+* unchanged - The original character string variable will not be turned into a factor variable. 
+* changed - The original character string variable will be turned into a factor variable. 
+
+```{r}
+dd2script(dd)
+dd2script(dd, factorHandle = 'unchanged')
+dd2script(dd, factorHandle = 'changed')
+```

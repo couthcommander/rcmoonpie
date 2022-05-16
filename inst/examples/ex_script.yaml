@@ -1,0 +1,59 @@
+dataset:
+- name: data
+  variables:
+  - name: record_id
+    label: Record ID
+  - name: redcap_event_name
+    label: Event Name
+    factor:
+    - label: Baseline
+      level: baseline
+    - label: Follow-up
+      level: followup
+  - name: visit_date
+    label: Visit Date
+  - name: randomization
+    label: Randomization
+    factor:
+    - label: Control
+      level: '0'
+    - label: Treatment
+      level: '1'
+  - name: sex
+    label: Sex
+    factor:
+    - label: Male
+      level: '0'
+    - label: Female
+      level: '1'
+    - label: Ambiguous
+      level: '666'
+    - label: Missing
+      level: '999'
+  - name: age
+    label: Age
+  - name: social_connectedness
+    label: Social Connectedness
+    factor:
+    - label: '0'
+      level: '0'
+    - label: '1'
+      level: '1'
+    - label: '2'
+      level: '2'
+    - label: '3'
+      level: '3'
+    - label: '4'
+      level: '4'
+    - label: '5'
+      level: '5'
+    - label: '6'
+      level: '6'
+    - label: '7'
+      level: '7'
+    - label: Ambiguous
+      level: '666'
+    - label: Missing
+      level: '999'
+  - name: comments
+    label: Comments

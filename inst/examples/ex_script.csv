@@ -1,0 +1,23 @@
+"name","variable","label","exclude","level","label.factor","exclude.factor"
+"data","record_id","Record ID",FALSE,NA,NA,TRUE
+"data","redcap_event_name","Event Name",FALSE,"baseline","Baseline",FALSE
+"data","redcap_event_name","Event Name",FALSE,"followup","Follow-up",FALSE
+"data","visit_date","Visit Date",FALSE,NA,NA,TRUE
+"data","randomization","Randomization",FALSE,"0","Control",FALSE
+"data","randomization","Randomization",FALSE,"1","Treatment",FALSE
+"data","sex","Sex",FALSE,"0","Male",FALSE
+"data","sex","Sex",FALSE,"1","Female",FALSE
+"data","sex","Sex",FALSE,"666","Ambiguous",FALSE
+"data","sex","Sex",FALSE,"999","Missing",FALSE
+"data","age","Age",FALSE,NA,NA,TRUE
+"data","social_connectedness","Social Connectedness",FALSE,"0","0",FALSE
+"data","social_connectedness","Social Connectedness",FALSE,"1","1",FALSE
+"data","social_connectedness","Social Connectedness",FALSE,"2","2",FALSE
+"data","social_connectedness","Social Connectedness",FALSE,"3","3",FALSE
+"data","social_connectedness","Social Connectedness",FALSE,"4","4",FALSE
+"data","social_connectedness","Social Connectedness",FALSE,"5","5",FALSE
+"data","social_connectedness","Social Connectedness",FALSE,"6","6",FALSE
+"data","social_connectedness","Social Connectedness",FALSE,"7","7",FALSE
+"data","social_connectedness","Social Connectedness",FALSE,"666","Ambiguous",FALSE
+"data","social_connectedness","Social Connectedness",FALSE,"999","Missing",FALSE
+"data","comments","Comments",FALSE,NA,NA,TRUE
