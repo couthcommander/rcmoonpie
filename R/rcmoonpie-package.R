@@ -12,6 +12,7 @@
 #' Maintainer: Cole Beck \email{cole.beck@@vumc.org}
 #'
 #' @importFrom yaml yaml.load_file write_yaml
+#' @importFrom utils read.csv write.csv
 #'
 #' @examples
 #' dd <- script2info(system.file("examples", "ex_script.R", package = "rcmoonpie"))

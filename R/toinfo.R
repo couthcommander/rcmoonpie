@@ -86,7 +86,7 @@ df2info <- function(df) {
 #' @export
 
 csv2info <- function(file, ...) {
-  df <- read.csv(file, ...)
+  df <- utils::read.csv(file, ...)
   df2info(df)
 }
 

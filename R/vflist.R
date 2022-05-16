@@ -7,6 +7,8 @@
 #' @return data.frame
 #'
 #' @examples
+#' dd <- script2info(system.file("examples", "ex_script.R", package = "rcmoonpie"))
+#' variableList(dd)
 #'
 #' @export
 
@@ -40,6 +42,8 @@ variableList <- function(l) {
 #' @return data.frame
 #'
 #' @examples
+#' dd <- script2info(system.file("examples", "ex_script.R", package = "rcmoonpie"))
+#' factorList(dd)
 #'
 #' @export
 

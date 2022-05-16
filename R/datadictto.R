@@ -121,7 +121,7 @@ dd2script <- function(l, file = "", factorHandle = c('duplicate','unchanged','ch
 #' @export
 
 dd2csv <- function(l, file = '', ...) {
-  write.csv(dd2df(l), file, row.names = FALSE, ...)
+  utils::write.csv(dd2df(l), file, row.names = FALSE, ...)
 }
 
 #' Data Dictionary to YAML file

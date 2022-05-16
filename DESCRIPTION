@@ -1,5 +1,5 @@
 Package: rcmoonpie
-Title: Redcap data dictionary
+Title: Redcap Data Dictionary
 Version: 0.1
 Authors@R:
     person("Cole", "Beck", role = c("aut","cre"),
@@ -10,4 +10,6 @@ License: GPL (>= 2)
 URL: https://github.com/couthcommander/rcmoonpie
 Encoding: UTF-8
 RoxygenNote: 7.1.1
+Imports: yaml
+Suggests: knitr
 VignetteBuilder: knitr

@@ -16,5 +16,7 @@ data.frame
 Data.frame with variable meta-data
 }
 \examples{
+dd <- script2info(system.file("examples", "ex_script.R", package = "rcmoonpie"))
+variableList(dd)
 
 }

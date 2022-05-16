@@ -16,5 +16,7 @@ data.frame
 Data.frame with meta-data for factor variables
 }
 \examples{
+dd <- script2info(system.file("examples", "ex_script.R", package = "rcmoonpie"))
+factorList(dd)
 
 }
